@@ -19,7 +19,8 @@ fn main() {
         lines
             .filter(|l| re.is_match(&l))
             .map(|l| String::from(re.replace_all(&l, "\x1b[0;31;1)m$r\x1b[0m" )) )
-            .collect::<String>()
+            .collect::<Vec<String>>()
+            .join("\n")
     )
     .unwrap();
 }
